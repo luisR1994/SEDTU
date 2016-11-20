@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SEDTU</string>
+    <string name="login">Inicia Sesión</string>
+    <string name="registro">¿Aun no tienes cuenta?</string>
+    <string name="crear_cuenta">Crear Cuenta</string>
+    <string name="password">Contraseña</string>
+    <string name="correo">Correo Electrónico</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidoM">Apellido Materno</string>
+    <string name="apellidoP">Apellido Paterno</string>
+    <string name="calle">Calle y numero</string>
+    <string name="colonia">Colonia</string>
+    <string name="municipio">Municipio</string>
+    <string name="estado">Estado</string>
+    <string name="inicio_sesion">Ya te registraste? Inicia Sesión</string>
+</resources>
