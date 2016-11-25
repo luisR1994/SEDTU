@@ -13,4 +13,6 @@
     <string name="municipio">Municipio</string>
     <string name="estado">Estado</string>
     <string name="inicio_sesion">Ya te registraste? Inicia Sesión</string>
+    <string name="cambio_password">Cambiar Contraseña</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
 </resources>
