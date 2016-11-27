@@ -1,5 +1,6 @@
 package com.example.thosiba.sedtu.login;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.content.SharedPreferences;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.thosiba.sedtu.FuncionActivity;
 import com.example.thosiba.sedtu.R;
 import com.example.thosiba.sedtu.modelos.ServerRequest;
 import com.example.thosiba.sedtu.modelos.ServerResponse;
@@ -23,6 +25,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by thosiba on 06/11/2016.
@@ -50,7 +54,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     private void initViews(View view){
 
-        pref = getActivity().getPreferences(0);
+        pref = getActivity().getSharedPreferences("user_pref", MODE_PRIVATE);
 
         btn_login = (AppCompatButton)view.findViewById(R.id.btn_login);
         tv_register = (TextView)view.findViewById(R.id.tv_register);
@@ -112,7 +116,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
                     editor.putBoolean(Constantes.IS_LOGGED_IN,true);
                     editor.putString(Constantes.EMAIL,resp.getUsuario().getEmail());
                     editor.putString(Constantes.NAME,resp.getUsuario().getNombre());
-                    editor.apply();
+                    editor.commit();
                     goToProfile();
 
                 }
@@ -140,10 +144,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     private void goToProfile(){
 
-        Fragment profile = new ProfileFragment();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_frame,profile);
-        ft.commit();
+        Intent intent = new Intent(getActivity(), FuncionActivity.class);
+        startActivity(intent);
     }
 }
 

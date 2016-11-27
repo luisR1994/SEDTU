@@ -1,6 +1,7 @@
 package com.example.thosiba.sedtu.login;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.content.SharedPreferences;
@@ -16,6 +17,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.thosiba.sedtu.FuncionActivity;
+import com.example.thosiba.sedtu.MainActivity;
 import com.example.thosiba.sedtu.R;
 import com.example.thosiba.sedtu.modelos.ServerRequest;
 import com.example.thosiba.sedtu.modelos.ServerResponse;
@@ -25,6 +28,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by thosiba on 09/11/2016.
@@ -50,7 +55,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        pref = getActivity().getPreferences(0);
+        pref = getActivity().getSharedPreferences("user_pref", MODE_PRIVATE);
         tv_name.setText("Welcome : "+pref.getString(Constantes.NAME,""));
         tv_email.setText(pref.getString(Constantes.EMAIL,""));
 
@@ -129,16 +134,14 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
         editor.putBoolean(Constantes.IS_LOGGED_IN,false);
         editor.putString(Constantes.EMAIL,"");
         editor.putString(Constantes.NAME,"");
-        editor.apply();
+        editor.commit();
         goToLogin();
     }
 
     private void goToLogin(){
 
-        Fragment login = new LoginFragment();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_frame,login);
-        ft.commit();
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
     }
 
     private void changePasswordProcess(String email,String old_password,String new_password){

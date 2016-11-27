@@ -18,13 +18,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        pref = getPreferences(0);
+        pref = getSharedPreferences("user_pref", MODE_PRIVATE);
         initFragment();
     }
     private void initFragment() {
         Fragment fragmento = new LoginFragment();
         if(pref.getBoolean(Constantes.IS_LOGGED_IN, false)){
-            Intent intent = new Intent(this, FuncionActivity.class);
+            Intent intent = new Intent(getApplicationContext(), FuncionActivity.class);
             startActivity(intent);
         } else {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
