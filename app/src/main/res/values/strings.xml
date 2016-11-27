@@ -15,4 +15,12 @@
     <string name="inicio_sesion">Ya te registraste? Inicia Sesión</string>
     <string name="cambio_password">Cambiar Contraseña</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="establecer_fecha_servicio">Establecer fecha del servicio</string>
+    <string name="establecer_hora_servicio">Establecer hora del servico</string>
+    <string name="establecer_hora">Eestablecer hora</string>
+    <string name="establecer_fecha">Establecer fecha</string>
+    <string name="solicitar_servicio">Solicitar servicio</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -17,12 +17,12 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.thosiba.sedtu.FuncionActivity;
 import com.example.thosiba.sedtu.MainActivity;
 import com.example.thosiba.sedtu.R;
 import com.example.thosiba.sedtu.modelos.ServerRequest;
 import com.example.thosiba.sedtu.modelos.ServerResponse;
 import com.example.thosiba.sedtu.modelos.Usuario;
+import com.example.thosiba.sedtu.servicios.SolicitarServicioFragment;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,7 +39,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
 
     private TextView tv_name,tv_email,tv_message;
     private SharedPreferences pref;
-    private AppCompatButton btn_change_password,btn_logout;
+    private AppCompatButton btn_change_password,btn_logout, btn_solicitar;
     private EditText et_old_password,et_new_password;
     private AlertDialog dialog;
     private ProgressBar progress;
@@ -56,7 +56,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         pref = getActivity().getSharedPreferences("user_pref", MODE_PRIVATE);
-        tv_name.setText("Welcome : "+pref.getString(Constantes.NAME,""));
+        tv_name.setText("Bienvenido : "+pref.getString(Constantes.NAME,""));
         tv_email.setText(pref.getString(Constantes.EMAIL,""));
 
     }
@@ -67,8 +67,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
         tv_email = (TextView)view.findViewById(R.id.tv_email);
         btn_change_password = (AppCompatButton)view.findViewById(R.id.btn_chg_password);
         btn_logout = (AppCompatButton)view.findViewById(R.id.btn_logout);
+        btn_solicitar = (AppCompatButton)view.findViewById(R.id.btn_solicitar);
         btn_change_password.setOnClickListener(this);
         btn_logout.setOnClickListener(this);
+        btn_solicitar.setOnClickListener(this);
 
     }
 
@@ -126,6 +128,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
             case R.id.btn_logout:
                 logout();
                 break;
+            case R.id.btn_solicitar:
+                solicitarServicio();
         }
     }
 
@@ -191,6 +195,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
 
             }
         });
+    }
+
+    public void solicitarServicio(){
+        Fragment solicitud = new SolicitarServicioFragment();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_frame, solicitud);
+        ft.commit();
     }
 
 }
