@@ -36,6 +36,10 @@ public class Usuario {
         this.fecha = fecha;
     }
 
+    public String getMunicipio() {
+        return municipio;
+    }
+
     public String getApellidoMaterno() {
         return apellidoMaterno;
     }

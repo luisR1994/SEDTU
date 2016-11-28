@@ -56,7 +56,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         pref = getActivity().getSharedPreferences("user_pref", MODE_PRIVATE);
-        tv_name.setText("Bienvenido : "+pref.getString(Constantes.NAME,""));
+        tv_name.setText("Bienvenido : " + pref.getString(Constantes.NAME,"")
+                + " " + pref.getString(Constantes.MUNICIPIO,""));
         tv_email.setText(pref.getString(Constantes.EMAIL,""));
 
     }
@@ -181,7 +182,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                     progress.setVisibility(View.GONE);
                     tv_message.setVisibility(View.VISIBLE);
                     tv_message.setText(resp.getMessage());
-                    //lala
+
                 }
             }
 

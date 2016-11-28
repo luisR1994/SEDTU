@@ -18,6 +18,7 @@ public class Constantes{
     public static final String NAME = "name";
     public static final String EMAIL = "email";
     public static final String APELLIDO_P = "apellidoPaterno";
+    public static final String MUNICIPIO = "municipio";
 
     public static final String TAG = "sedtu";
 }

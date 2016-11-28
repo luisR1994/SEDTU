@@ -187,6 +187,7 @@ public class SolicitarServicioFragment extends Fragment implements View.OnClickL
         usuario.setEmail(pref.getString(Constantes.EMAIL,""));
         usuario.setHora(tv_hora.getText().toString());
         usuario.setFecha(tv_fecha.getText().toString());
+        usuario.setMunicipio(pref.getString(Constantes.MUNICIPIO,""));
         ServerRequest request = new ServerRequest();
         request.setOperation(Constantes.REGISTER_SERVICE);
         request.setUsuario(usuario);
