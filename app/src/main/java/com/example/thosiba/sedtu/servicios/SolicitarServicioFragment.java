@@ -48,6 +48,24 @@ public class SolicitarServicioFragment extends Fragment implements View.OnClickL
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btn_est_fecha:
+                showDialogFecha();
+                break;
+            case R.id.btn_est_hora:
+                showDialogHora();
+                break;
+            case R.id.btn_solicitar:
+                break;
+        }
+
+    }
+
+    public void showDialogFecha(){
+
+    }
+
+    public void showDialogHora(){
 
     }
 }
