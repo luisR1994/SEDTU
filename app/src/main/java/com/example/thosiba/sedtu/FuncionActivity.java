@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.WindowManager;
 
 import com.example.thosiba.sedtu.login.ProfileFragment;
 
@@ -21,6 +22,7 @@ public class FuncionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_funcion);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         pref = getSharedPreferences("user_pref", MODE_PRIVATE);
         Fragment profile = new ProfileFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

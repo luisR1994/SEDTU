@@ -8,11 +8,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <DatePicker
+    <TimePicker
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:id="@+id/datePicker" />
+        android:id="@+id/timePicker" />
 
     <ProgressBar
         style="@style/Base.Widget.AppCompat.ProgressBar"

@@ -17,6 +17,24 @@ public class Usuario {
     private String password;
     private String new_password;
     private String old_password;
+    private String hora;
+    private String fecha;
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
 
     public String getApellidoMaterno() {
         return apellidoMaterno;
